@@ -15,30 +15,30 @@ export class Table extends Component {
   }
 
   sort30Desc() {
-
+    return null
   }
   sort30Asc() {
-
+    return null
   }
   sortAllDesc() {
-
+    return null
   }
   sortAllAsc() {
-
+    return null
   }
   sort() {
     switch(this.state.sorted) {
       case "Desc30":
-        sort30Desc();
+        this.sort30Desc();
         break;
       case "Asc30":
-        sort30Asc();
+        this.sort30Asc();
         break;
       case "AllDesc":
-        sortAllAsc();
+        this.sortAllAsc();
         break;
       case "AllAsc":
-        sortAllDesc();
+        this.sortAllDesc();
         break;
       default:
       console.log("which sort method?");
@@ -47,6 +47,9 @@ export class Table extends Component {
   }
 
   render() {
+    //if campers is empty, render some "loading" table
+    //(add placeholders to rows, design after the layout is set)
+    //else, render the actual table with campers
     return (
   <table className="table table-striped">
     <thead>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Header extends Component {
+export class Header extends Component {
   render() {
     return(
       <header>
@@ -10,4 +10,13 @@ class Header extends Component {
   }
 }
 
-export default Header
+
+export class Footer extends Component {
+  render() {
+    return(
+      <footer className="text-center">
+        <p>pullman14</p>
+      </footer>
+    )
+  }
+}

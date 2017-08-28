@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Table, TableEntry} from './Table.js'
-import Header from './Header.js'
+import {Header, Footer} from './Header.js'
 
 class App extends Component {
   render() {
@@ -10,6 +10,7 @@ class App extends Component {
         <div className="container">
           <Table />
         </div>
+        <Footer />
       </div>
     )
   }

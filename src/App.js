@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Table, TableEntry} from './Table.js'
+import Table from './Table.js'
 import {Header, Footer} from './Header.js'
 
 class App extends Component {

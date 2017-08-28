@@ -13,6 +13,39 @@ export class Table extends Component {
       campers: []
     }
   }
+
+  sort30Desc() {
+
+  }
+  sort30Asc() {
+
+  }
+  sortAllDesc() {
+
+  }
+  sortAllAsc() {
+
+  }
+  sort() {
+    switch(this.state.sorted) {
+      case "Desc30":
+        sort30Desc();
+        break;
+      case "Asc30":
+        sort30Asc();
+        break;
+      case "AllDesc":
+        sortAllAsc();
+        break;
+      case "AllAsc":
+        sortAllDesc();
+        break;
+      default:
+      console.log("which sort method?");
+        break;
+    }
+  }
+
   render() {
     return (
   <table className="table table-striped">

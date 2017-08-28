@@ -49,26 +49,14 @@ class Table extends Component {
     //if campers is empty, render some "loading" table
     //(add placeholders to rows, design after the layout is set)
     //else, render the actual table with campers
-    /*
-    if (this.state.campers == null){
-      return(
-        <h1>Loading</h1>
-      )
+    if (!this.state.campers30){
+      return <p>Loading...</p>
     }
-    */
-    /*
-    var xhr = new XMLHttpRequest();
+    //entries is an array of TableEntries for specific campers
+    var entries = this.state.campers30.map(function(element, index){
+      return <TableEntry key={index.toString() + element.username} index={index} camper={element} />
+    })
 
-    xhr.onload = function() {
-      if(xhr.status === 200){
-        var obj = JSON.parse(xhr.responseText);
-        console.log(obj)
-      }
-      else {
-
-      }
-    }
-*/
     return (
       <table className="table table-striped">
         <thead>
@@ -80,15 +68,9 @@ class Table extends Component {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>pullman14</td>
-          <td>0</td>
-          <td>100</td>
-        </tr>
-      <TableEntry />
-    </tbody>
-  </table>
+        {entries}
+      </tbody>
+    </table>
     )
   }
 }
@@ -97,10 +79,10 @@ class TableEntry extends Component {
   render() {
     return(
       <tr>
-        <th scope="row">2</th>
-        <td>pullman14</td>
-        <td>0</td>
-        <td>100</td>
+        <th scope="row">{this.props.index+1}</th>
+        <td>{this.props.camper.username}</td>
+        <td>{this.props.camper.recent}</td>
+        <td>{this.props.camper.alltime}</td>
       </tr>
     )
   }

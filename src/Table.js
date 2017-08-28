@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
-
+import $ from 'jquery'
+const url30 = "https://fcctop100.herokuapp.com/api/fccusers/top/recent"
+const urlAll = "https://fcctop100.herokuapp.com/api/fccusers/top/alltime"
 
 //This table is given a list of Campers (including their username amd pic,
 //30 day points, and all time points)
@@ -8,47 +10,38 @@ class Table extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      //how is this sorted?
-      sorted: "Desc30", //desc30, asc30, descAll, ascAll
-      campers: null
+      campers30: null,
+      campersAll: null
     }
+    this.addCampers = this.addCampers.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
   }
 
-  fetchCampers() {
-    //getJSON the 30 day and all time api's.
-    //Once retrieved, setState to rerender table
+  addCampers(campers30, campersAll){
+    console.log(campers30)
+    console.log(campersAll)
   }
 
-  sort30Desc() {
-    return null
+  componentDidMount() {
+    var campers30, campersAll
+    var self = this
+
+    $.getJSON(url30, function(data){
+      campers30 = data
+      if (campers30 && campersAll){
+        self.addCampers(campers30, campersAll)
+      }
+    })
+    $.getJSON(urlAll, function(data){
+      campersAll = data
+      if (campers30 && campersAll){
+        self.addCampers(campers30, campersAll)
+      }
+    })
   }
-  sort30Asc() {
-    return null
-  }
-  sortAllDesc() {
-    return null
-  }
-  sortAllAsc() {
-    return null
-  }
-  sort() {
-    switch(this.state.sorted) {
-      case "Desc30":
-        this.sort30Desc();
-        break;
-      case "Asc30":
-        this.sort30Asc();
-        break;
-      case "AllDesc":
-        this.sortAllAsc();
-        break;
-      case "AllAsc":
-        this.sortAllDesc();
-        break;
-      default:
-      console.log("which sort method?");
-        break;
-    }
+
+  toggleSort() {
+
   }
 
   render() {
@@ -62,6 +55,19 @@ class Table extends Component {
       )
     }
     */
+    /*
+    var xhr = new XMLHttpRequest();
+
+    xhr.onload = function() {
+      if(xhr.status === 200){
+        var obj = JSON.parse(xhr.responseText);
+        console.log(obj)
+      }
+      else {
+
+      }
+    }
+*/
     return (
       <table className="table table-striped">
         <thead>

@@ -13,14 +13,9 @@ class Table extends Component {
       campers30: null,
       campersAll: null
     }
-    this.addCampers = this.addCampers.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
   }
 
-  addCampers(campers30, campersAll){
-    console.log(campers30)
-    console.log(campersAll)
-  }
 
   componentDidMount() {
     var campers30, campersAll
@@ -29,13 +24,19 @@ class Table extends Component {
     $.getJSON(url30, function(data){
       campers30 = data
       if (campers30 && campersAll){
-        self.addCampers(campers30, campersAll)
+        self.setState({
+          campers30: campers30,
+          campersAll: campersAll
+        })
       }
     })
     $.getJSON(urlAll, function(data){
       campersAll = data
       if (campers30 && campersAll){
-        self.addCampers(campers30, campersAll)
+        self.setState({
+          campers30: campers30,
+          campersAll: campersAll
+        })
       }
     })
   }

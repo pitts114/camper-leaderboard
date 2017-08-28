@@ -11,9 +11,12 @@ class Table extends Component {
     super(props)
     this.state = {
       campers30: null,
-      campersAll: null
+      campersAll: null,
+      Is30Active: true //what is the active stat being shown? 30 if true, all if false
     }
     this.componentDidMount = this.componentDidMount.bind(this)
+    this.toggle30 = this.toggle30.bind(this)
+    this.toggleAll = this.toggleAll.bind(this)
   }
 
 
@@ -26,7 +29,8 @@ class Table extends Component {
       if (campers30 && campersAll){
         self.setState({
           campers30: campers30,
-          campersAll: campersAll
+          campersAll: campersAll,
+          Is30Active: self.state.Is30Active
         })
       }
     })
@@ -35,13 +39,46 @@ class Table extends Component {
       if (campers30 && campersAll){
         self.setState({
           campers30: campers30,
-          campersAll: campersAll
+          campersAll: campersAll,
+          Is30Active: self.state.Is30Active
         })
       }
     })
   }
 
-  toggleSort() {
+
+  toggle30() {
+    if (this.state.Is30Active){
+      this.setState({
+        campers30: this.state.campers30.reverse(),
+        campersAll: this.state.campersAll,
+        Is30Active: this.state.Is30Active
+      })
+    }
+    else{
+      this.setState({
+        campers30: this.state.campers30,
+        campersAll: this.state.campersAll,
+        Is30Active: !this.state.Is30Active
+      })
+    }
+  }
+
+  toggleAll() {
+    if (!this.state.Is30Active) {
+      this.setState({
+        campers30: this.state.campers30,
+        campersAll: this.state.campersAll.reverse(),
+        Is30Active: this.state.Is30Active
+      })
+    }
+    else{
+      this.setState({
+        campers30:this.state.campers30,
+        campersAll: this.state.campersAll,
+        Is30Active: !this.state.Is30Active
+      })
+    }
 
   }
 
@@ -53,7 +90,14 @@ class Table extends Component {
       return <p>Loading...</p>
     }
     //entries is an array of TableEntries for specific campers
-    var entries = this.state.campers30.map(function(element, index){
+    var arr
+    if (this.state.Is30Active){
+      arr = this.state.campers30
+    }
+    else {
+      arr = this.state.campersAll
+    }
+    var entries = arr.map(function(element, index){
       return <TableEntry key={index.toString() + element.username} index={index} camper={element} />
     })
 
@@ -63,8 +107,8 @@ class Table extends Component {
           <tr>
             <th>#</th>
             <th>Camper Name</th>
-          <th><a>Points in Past 30 Days</a></th>
-          <th><a>All Time Points</a></th>
+          <th><a id="days30" onClick={this.toggle30}>Points in Past 30 Days ▼</a></th>
+          <th><a id="daysall" onClick={this.toggleAll}>All Time Points</a></th>
         </tr>
       </thead>
       <tbody>

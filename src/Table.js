@@ -87,7 +87,7 @@ class Table extends Component {
     //(add placeholders to rows, design after the layout is set)
     //else, render the actual table with campers
     if (!this.state.campers30){
-      return <p>Loading...</p>
+      return <TempTable />
     }
     var order30, orderAll, IsDesc //shows if data is sorted ascending/descending
     //which set of data should be used? also, how is it sorted?
@@ -153,12 +153,49 @@ class TableEntry extends Component {
     return(
       <tr>
         <th scope="row">{this.props.index}</th>
-        <td><img alt="free code camp" className="profile-pic img-responsive img-thumbnail" src={this.props.camper.img}/> {this.props.camper.username}</td>
+        <td><img alt="" className="profile-pic img-responsive img-thumbnail" src={this.props.camper.img}/> {this.props.camper.username}</td>
         <td className="text-center">{this.props.camper.recent}</td>
         <td className="text-center">{this.props.camper.alltime}</td>
       </tr>
     )
   }
 }
+
+class TempTable extends Component {
+  render() {
+
+    var entries = []
+    for (var i = 0; i < 100; i++){
+      entries.push(
+        <tr>
+          <th scope="row">{i+1}</th>
+          <td>--------</td>
+          <td className="text-center">x</td>
+          <td className="text-center">x</td>
+        </tr>
+      )
+    }
+
+    return(
+      <div className="panel panel-default">
+        <div id="leaderboard-title" className="panel-heading text-center">Leaderboard</div>
+      <table className="table table-striped table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Camper Name</th>
+          <th><a>Points in Past 30 Days</a></th>
+          <th><a>All Time Points</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        {entries}
+      </tbody>
+    </table>
+  </div>
+    )
+  }
+}
+
 
 export default Table;

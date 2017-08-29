@@ -35,6 +35,9 @@ nav {
 
 footer {
   color: white;
+  a, a:hover, a:visited, a:active{
+    color: white;
+  }
 }
 
 tr {
@@ -43,7 +46,7 @@ tr {
     vertical-align: middle !important;
   }
 }
-a, a:hover {
+a, a:hover, a:visited, a:active {
   color: $green;
   text-decoration: none;
   cursor: pointer;

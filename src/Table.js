@@ -89,6 +89,7 @@ class Table extends Component {
     if (!this.state.campers30){
       return <TempTable />
     }
+
     var order30, orderAll, IsDesc //shows if data is sorted ascending/descending
     //which set of data should be used? also, how is it sorted?
     var arr
@@ -168,10 +169,10 @@ class TempTable extends Component {
     for (var i = 0; i < 100; i++){
       entries.push(
         <tr>
-          <th scope="row">{i+1}</th>
-          <td>--------</td>
-          <td className="text-center">x</td>
-          <td className="text-center">x</td>
+          <th scope="row">-</th>
+          <td><div className="square-pic"></div><div className="temp-user">-</div></td>
+          <td className="text-center">-</td>
+          <td className="text-center">-</td>
         </tr>
       )
     }

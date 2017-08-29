@@ -1,5 +1,6 @@
 $green: #006400;
 $gray: #333;
+$pic-size: 45px;
 
 
 body {
@@ -15,11 +16,10 @@ body {
 }
 
 .profile-pic {
-
   border-color: $green;
 }
 .img-responsive {
-  width: 45px;
+  width: $pic-size;
 }
 
 nav {
@@ -47,4 +47,14 @@ a, a:hover {
   color: $green;
   text-decoration: none;
   cursor: pointer;
+}
+.square-pic {
+  	width: $pic-size;
+    height: $pic-size;
+    background: #e3e3e3;
+    border-radius: 5px;
+    display: inline-block;
+}
+.temp-user {
+
 }

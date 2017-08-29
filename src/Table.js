@@ -130,7 +130,7 @@ class Table extends Component {
     return (
       <div className="panel panel-default">
         <div id="leaderboard-title" className="panel-heading text-center">Leaderboard</div>
-      <table className="table table-striped">
+      <table className="table table-striped table-hover table-bordered">
         <thead>
           <tr>
             <th>#</th>
@@ -153,9 +153,9 @@ class TableEntry extends Component {
     return(
       <tr>
         <th scope="row">{this.props.index}</th>
-        <td>{this.props.camper.username}</td>
-        <td>{this.props.camper.recent}</td>
-        <td>{this.props.camper.alltime}</td>
+        <td><img className="profile-pic img-responsive img-thumbnail" src={this.props.camper.img}/> {this.props.camper.username}</td>
+        <td className="text-center">{this.props.camper.recent}</td>
+        <td className="text-center">{this.props.camper.alltime}</td>
       </tr>
     )
   }

@@ -14,6 +14,14 @@ body {
   font-size: 200%;
 }
 
+.profile-pic {
+
+  border-color: $green;
+}
+.img-responsive {
+  width: 45px;
+}
+
 header {
   background-color: $green;
   margin-bottom: 30px;
@@ -22,4 +30,20 @@ header {
     height: auto;
     margin: 10px;
   }
+}
+
+footer {
+  color: white;
+}
+
+tr {
+  font-size: 110%;
+  td {
+    vertical-align: middle !important;
+  }
+}
+a, a:hover {
+  color: $green;
+  text-decoration: none;
+  cursor: pointer;
 }

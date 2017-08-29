@@ -89,7 +89,7 @@ class Table extends Component {
     if (!this.state.campers30){
       return <p>Loading...</p>
     }
-    var order30, orderAll //shows if data is sorted ascending/descending
+    var order30, orderAll, IsDesc //shows if data is sorted ascending/descending
     //which set of data should be used? also, how is it sorted?
     var arr
     if (this.state.Is30Active){
@@ -97,10 +97,12 @@ class Table extends Component {
       if(arr[0].recent > arr[1].recent) { //if descending
         order30 = " ▼"
         orderAll = ""
+        IsDesc = true
       }
       else { //ascending
         order30 = " ▲"
         orderAll = ""
+        IsDesc = false
       }
     }
     else {
@@ -108,15 +110,21 @@ class Table extends Component {
       if(arr[0].alltime > arr[1].alltime){
         orderAll = " ▼"
         order30 = ""
+        IsDesc = true
       }
       else {
         orderAll = " ▲"
         order30 = ""
+        IsDesc = false
       }
     }
         //entries is an array of TableEntries for specific campers
+    var arrLength = arr.length
     var entries = arr.map(function(element, index){
-      return <TableEntry key={index.toString() + element.username} index={index} camper={element} />
+      if (IsDesc){
+        return <TableEntry key={element.username} index={index + 1} camper={element} />
+      }
+      return <TableEntry key={element.username} index={arrLength - index} camper={element} />
     })
 
     return (
@@ -141,7 +149,7 @@ class TableEntry extends Component {
   render() {
     return(
       <tr>
-        <th scope="row">{this.props.index+1}</th>
+        <th scope="row">{this.props.index}</th>
         <td>{this.props.camper.username}</td>
         <td>{this.props.camper.recent}</td>
         <td>{this.props.camper.alltime}</td>

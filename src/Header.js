@@ -20,7 +20,7 @@ export class Footer extends Component {
   render() {
     return(
       <footer className="text-center">
-        <p>pullman14</p>
+        <a href="https://github.com/pullman14"><p>pullman14</p></a>
       </footer>
     )
   }

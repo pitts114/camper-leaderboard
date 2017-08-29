@@ -4,12 +4,13 @@ const fccImg = "https://www.freecodecamp.com/design-style-guide/img/freeCodeCamp
 export class Header extends Component {
   render() {
     return(
-      <header>
-        <img src={fccImg} className="img-fluid" alt="freeCodeCamp" />
-        <a href="https://github.com/pullman14"><i className="fa fa-github" aria-hidden="true"></i></a>
-        <a href="https://www.freecodecamp.org/pullman14"><i className="fa fa-free-code-camp" aria-hidden="true"></i></a>
-        <a href="https://www.linkedin.com/in/pitts114/"><i className="fa fa-linkedin" aria-hidden="true"></i></a>
-      </header>
+      <nav className="navbar">
+        <div className="container-fluid">
+          <div className="navbar-header">
+            <a className="navbar-brand" href="https://www.freecodecamp.com"><img src={fccImg} alt="freecodecamp" /></a>
+          </div>
+        </div>
+      </nav>
     )
   }
 }

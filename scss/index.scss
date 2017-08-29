@@ -22,14 +22,14 @@ body {
   width: 45px;
 }
 
-header {
+nav {
   background-color: $green;
   margin-bottom: 30px;
+  border-radius: 0px !important;
 
   img {
     max-width: 50%;
     height: auto;
-    margin: 10px;
   }
    a{
      float: right;

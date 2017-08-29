@@ -128,19 +128,22 @@ class Table extends Component {
     })
 
     return (
+      <div className="panel panel-default">
+        <div id="leaderboard-title" className="panel-heading text-center">Leaderboard</div>
       <table className="table table-striped">
         <thead>
           <tr>
             <th>#</th>
             <th>Camper Name</th>
-          <th><a id="days30" onClick={this.toggle30}>{"Points in Past 30 Days" + order30}</a></th>
-          <th><a id="daysall" onClick={this.toggleAll}>{"All Time Points" + orderAll}</a></th>
+          <th><a onClick={this.toggle30}>{"Points in Past 30 Days" + order30}</a></th>
+          <th><a onClick={this.toggleAll}>{"All Time Points" + orderAll}</a></th>
         </tr>
       </thead>
       <tbody>
         {entries}
       </tbody>
     </table>
+  </div>
     )
   }
 }

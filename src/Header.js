@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+const fccImg = "https://www.freecodecamp.com/design-style-guide/img/freeCodeCamp.png"
 
 export class Header extends Component {
   render() {
     return(
       <header>
-        <p>freeCodeCamp</p>
+        <img src={fccImg} className="img-fluid" alt="freeCodeCamp" />
       </header>
     )
   }

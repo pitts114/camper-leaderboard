@@ -1,5 +1,25 @@
+$green: #006400;
+$gray: #333;
+
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: $gray;
+}
+#leaderboard-title {
+  background-color: $green;
+  color:white;
+  font-size: 200%;
+}
+
+header {
+  background-color: $green;
+  margin-bottom: 30px;
+  img {
+    max-width: 50%;
+    height: auto;
+    margin: 10px;
+  }
 }

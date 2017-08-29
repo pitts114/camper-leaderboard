@@ -153,7 +153,7 @@ class TableEntry extends Component {
     return(
       <tr>
         <th scope="row">{this.props.index}</th>
-        <td><img className="profile-pic img-responsive img-thumbnail" src={this.props.camper.img}/> {this.props.camper.username}</td>
+        <td><img alt="free code camp" className="profile-pic img-responsive img-thumbnail" src={this.props.camper.img}/> {this.props.camper.username}</td>
         <td className="text-center">{this.props.camper.recent}</td>
         <td className="text-center">{this.props.camper.alltime}</td>
       </tr>

@@ -1,0 +1,58 @@
+$green: #006400;
+$gray: #333;
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: $gray;
+}
+#leaderboard-title {
+  background-color: $green;
+  color:white;
+  font-size: 200%;
+}
+
+.profile-pic {
+
+  border-color: $green;
+}
+.img-responsive {
+  width: 45px;
+}
+
+header {
+  background-color: $green;
+  margin-bottom: 30px;
+
+  img {
+    max-width: 50%;
+    height: auto;
+    margin: 10px;
+  }
+   a{
+     float: right;
+     margin-right: 10px;
+     i {
+       color: white;
+       font-size: 2em !important;
+     }
+   }
+}
+
+footer {
+  color: white;
+}
+
+tr {
+  font-size: 110%;
+  td {
+    vertical-align: middle !important;
+  }
+}
+a, a:hover {
+  color: $green;
+  text-decoration: none;
+  cursor: pointer;
+}

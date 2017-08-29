@@ -6,6 +6,9 @@ export class Header extends Component {
     return(
       <header>
         <img src={fccImg} className="img-fluid" alt="freeCodeCamp" />
+        <a href="https://github.com/pullman14"><i className="fa fa-github" aria-hidden="true"></i></a>
+        <a href="https://www.freecodecamp.org/pullman14"><i className="fa fa-free-code-camp" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/pitts114/"><i className="fa fa-linkedin" aria-hidden="true"></i></a>
       </header>
     )
   }

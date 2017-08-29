@@ -89,14 +89,32 @@ class Table extends Component {
     if (!this.state.campers30){
       return <p>Loading...</p>
     }
-    //entries is an array of TableEntries for specific campers
+    var order30, orderAll //shows if data is sorted ascending/descending
+    //which set of data should be used? also, how is it sorted?
     var arr
     if (this.state.Is30Active){
       arr = this.state.campers30
+      if(arr[0].recent > arr[1].recent) { //if descending
+        order30 = " ▼"
+        orderAll = ""
+      }
+      else { //ascending
+        order30 = " ▲"
+        orderAll = ""
+      }
     }
     else {
       arr = this.state.campersAll
+      if(arr[0].alltime > arr[1].alltime){
+        orderAll = " ▼"
+        order30 = ""
+      }
+      else {
+        orderAll = " ▲"
+        order30 = ""
+      }
     }
+        //entries is an array of TableEntries for specific campers
     var entries = arr.map(function(element, index){
       return <TableEntry key={index.toString() + element.username} index={index} camper={element} />
     })
@@ -107,8 +125,8 @@ class Table extends Component {
           <tr>
             <th>#</th>
             <th>Camper Name</th>
-          <th><a id="days30" onClick={this.toggle30}>Points in Past 30 Days ▼</a></th>
-          <th><a id="daysall" onClick={this.toggleAll}>All Time Points</a></th>
+          <th><a id="days30" onClick={this.toggle30}>{"Points in Past 30 Days" + order30}</a></th>
+          <th><a id="daysall" onClick={this.toggleAll}>{"All Time Points" + orderAll}</a></th>
         </tr>
       </thead>
       <tbody>
